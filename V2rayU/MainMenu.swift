@@ -54,7 +54,7 @@ func ToggleRunning(_ toast: Bool = true) {
     if UserDefaults.getBool(forKey: .v2rayTurnOn) {
         menuController.stopV2rayCore()
         if toast {
-            makeToast(message: "v2ray-core: Off")
+            makeToast(message: "Agakoti VPN: Off")
         }
         return
     }
@@ -62,7 +62,7 @@ func ToggleRunning(_ toast: Bool = true) {
     // start
     menuController.startV2rayCore()
     if toast {
-        makeToast(message: "v2ray-core: On")
+        makeToast(message: "Agakoti VPN: On")
     }
 }
 

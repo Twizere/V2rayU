@@ -10,7 +10,7 @@ import Cocoa
 import ServiceManagement
 import Swifter
 
-let launcherAppIdentifier = "net.yanue.V2rayU.Launcher"
+let launcherAppIdentifier = "nezalab.agakoti.mac.Launcher"
 let appVersion = getAppVersion()
 
 let NOTIFY_TOGGLE_RUNNING_SHORTCUT = Notification.Name(rawValue: "NOTIFY_TOGGLE_RUNNING_SHORTCUT")
