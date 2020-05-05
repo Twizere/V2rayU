@@ -14,7 +14,13 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="V2rayU" customModuleProvider="target">
             <connections>
+                <outlet property="accountTitleMenuItem" destination="K4b-9U-T3e" id="BIr-5N-uA1"/>
+                <outlet property="emailMenuItem" destination="32g-EA-BKv" id="BbU-i6-wkV"/>
+                <outlet property="loginMenu" destination="9Cc-Ua-nP3" id="FWe-xW-a6E"/>
+                <outlet property="logoutMenu" destination="VbE-ab-BPS" id="5hz-z4-Kts"/>
                 <outlet property="statusMenu" destination="9n3-TW-9ur" id="RLL-Ev-lPF"/>
+                <outlet property="toggleRunningMenuItem" destination="SML-EF-rdT" id="5Ru-vh-9oI"/>
+                <outlet property="usernameMenuItem" destination="ilk-9r-oqY" id="8tC-aP-N6a"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -39,7 +45,6 @@
                         <action selector="start:" target="hcZ-V7-Dui" id="XIR-lL-vV2"/>
                     </connections>
                 </menuItem>
-                <menuItem isSeparatorItem="YES" id="K10-II-m5R"/>
                 <menuItem title="View config.json" hidden="YES" id="b3o-tG-rp3">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -66,11 +71,47 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="EF9-7H-2Xy"/>
+                <menuItem title="My Account" image="NSUserGuest" id="K4b-9U-T3e">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openMyAccount:" target="hcZ-V7-Dui" id="PMm-KS-P8N"/>
+                    </connections>
+                </menuItem>
+                <menuItem state="mixed" indentationLevel="3" id="ilk-9r-oqY">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="myUsername:" target="hcZ-V7-Dui" id="OQb-GP-ZtN"/>
+                    </connections>
+                </menuItem>
+                <menuItem state="mixed" indentationLevel="3" id="32g-EA-BKv">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="myEmail:" target="hcZ-V7-Dui" id="w8N-0S-LC5"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" hidden="YES" id="gjv-eE-l6L"/>
+                <menuItem title="Login" id="9Cc-Ua-nP3">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="loginWindow:" target="hcZ-V7-Dui" id="HRz-rG-G4k"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Logout" id="VbE-ab-BPS">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="doLogout:" target="Voe-Tx-rLC" id="3U9-RT-GMZ"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="K10-II-m5R"/>
+                <menuItem title="The servers are below:" enabled="NO" id="6Oc-Vr-ghk">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
                 <menuItem title="Servers" id="cio-ej-HL5" userLabel="ServerItems">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Servers" id="NCx-DY-Hm4"/>
                 </menuItem>
-                <menuItem title="Configure..." hidden="YES" keyEquivalent="c" id="YoX-II-o27" userLabel="Configure">
+                <menuItem title="Configure..." keyEquivalent="c" id="YoX-II-o27" userLabel="Configure">
                     <connections>
                         <action selector="openConfig:" target="hcZ-V7-Dui" id="cu6-mU-Y02"/>
                     </connections>
@@ -94,7 +135,7 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" hidden="YES" id="4r0-fk-xMy"/>
-                <menuItem title="Import Server From Pasteboard" hidden="YES" keyEquivalent="p" toolTip="ss:// or vmess://" id="Kct-KD-qPN">
+                <menuItem title="Import Server From Pasteboard" keyEquivalent="p" toolTip="ss:// or vmess://" id="Kct-KD-qPN">
                     <connections>
                         <action selector="ImportFromPasteboard:" target="hcZ-V7-Dui" id="aP0-Ao-OTD"/>
                     </connections>
@@ -373,5 +414,11 @@
             </items>
             <point key="canvasLocation" x="-502" y="336"/>
         </menu>
+        <menuItem title="Item" id="c4y-pW-vcP">
+            <modifierMask key="keyEquivalentModifierMask"/>
+        </menuItem>
     </objects>
+    <resources>
+        <image name="NSUserGuest" width="32" height="32"/>
+    </resources>
 </document>

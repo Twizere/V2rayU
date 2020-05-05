@@ -74,6 +74,12 @@ extension UserDefaults {
         case routingDirectIps
         case routingBlockDomains
         case routingBlockIps
+        //Login Info
+        case loginToken
+        case loginUserId
+        case loginFullname
+        case loginPhoneEmail
+        case loginDueDate
     }
 
     static func setBool(forKey key: KEY, value: Bool) {

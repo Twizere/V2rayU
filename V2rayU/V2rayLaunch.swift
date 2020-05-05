@@ -26,6 +26,7 @@ let cmdSh = AppResourcesPath + "/cmd.sh"
 let cmdAppleScript = "do shell script \"" + cmdSh + "\" with administrator privileges"
 let JsonConfigFilePath = AppResourcesPath + "/config.json"
 
+
 var webServer = HttpServer()
 
 enum RunMode: String {

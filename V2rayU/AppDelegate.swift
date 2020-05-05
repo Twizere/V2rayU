@@ -15,16 +15,33 @@ let appVersion = getAppVersion()
 
 let NOTIFY_TOGGLE_RUNNING_SHORTCUT = Notification.Name(rawValue: "NOTIFY_TOGGLE_RUNNING_SHORTCUT")
 let NOTIFY_SWITCH_PROXY_MODE_SHORTCUT = Notification.Name(rawValue: "NOTIFY_SWITCH_PROXY_MODE_SHORTCUT")
+let SERVERS_UPDATED = Notification.Name(rawValue: "SERVERS_UPDATED")
+let LOGOUT_NEEDED = Notification.Name(rawValue:"LOGOUT_NEEDED")
+let DISCONNECT_VPN = Notification.Name(rawValue:"DISCONNECT_VPN")
+let LOGGED_IN_SUCCESSFULY = Notification.Name(rawValue:"LOGGED_IN_SUCCESSFULY")
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     // bar menu
     @IBOutlet weak var statusMenu: NSMenu!
-
-
+    
+    @IBOutlet weak var loginMenu: NSMenuItem!
+    
+    @IBOutlet weak var logoutMenu: NSMenuItem!
+    
+    @IBOutlet weak var accountTitleMenuItem: NSMenuItem!
+    
+    @IBOutlet weak var usernameMenuItem: NSMenuItem!
+    
+    @IBOutlet weak var emailMenuItem: NSMenuItem!
+    
+    @IBOutlet weak var toggleRunningMenuItem: NSMenuItem!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // default settings
         self.checkDefault()
+        loginCheck();
 
         // auto Clear Logs
         if UserDefaults.getBool(forKey: .autoClearLog) {
@@ -69,7 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSLog(String.init(format: "working dir:%@", path))
 
         if !(path.contains("Developer/Xcode") || path.contains("/Applications/V2rayU.app")) {
-            makeToast(message: "Please drag 'V2rayU' to '/Applications' directory", displayDuration: 5.0)
+            makeToast(message: "Please drag 'Agakoti' to '/Applications' directory", displayDuration: 5.0)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
                 NSApplication.shared.terminate(self)
             }
@@ -86,9 +103,50 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             notice in
             SwitchProxyMode()
         })
-
+        
+        notifyCenter.addObserver(forName: LOGGED_IN_SUCCESSFULY, object: nil, queue: nil, using: {
+            notice in
+            
+            // Showing the Notification
+            let username = UserDefaults.get(forKey: .loginFullname);
+            
+            let noty = NSUserNotification()
+            
+            noty.title = "Hi " + username!
+            noty.subtitle = "Welcome back to AGAKOTI VPN"
+            noty.deliveryDate = Date().addingTimeInterval(1)
+            NSUserNotificationCenter.default.scheduleNotification(noty)
+            
+            //Hide Login Controls
+            self.loginCheck();
+        })
+        notifyCenter.addObserver(forName: LOGOUT_NEEDED, object: nil, queue: nil, using: {
+            notice in
+            
+            UserDefaults.set(forKey: .loginToken, value:"")
+            self.logout();
+        })
+        
+        notifyCenter.addObserver(forName: SERVERS_UPDATED, object: nil, queue: nil, using: {
+                   notice in
+                    
+               })
+        
+       notifyCenter.addObserver(forName: DISCONNECT_VPN, object: nil, queue: nil, using: {
+                   notice in
+                    ToggleRunning(false)
+               })
+        
         // Register global hotkey
         ShortcutsController.bindShortcuts()
+        
+        //Updating the servers
+        let token = UserDefaults.get(forKey: .loginToken)
+          if !(UserDefaults.get(forKey: .loginDueDate) == "" ||
+              token == "" ){
+              
+              BASEAPI.getServers(token: token!)
+          }
     }
 
     func checkDefault() {
@@ -115,7 +173,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // add default
             V2rayServer.add(remark: "default", json: "", isValid: false)
         }
+        
+        // Login Info
+        if UserDefaults.get(forKey: .loginToken) == nil {
+            UserDefaults.set(forKey: .loginToken, value:"")
+        }
+        if UserDefaults.get(forKey: .loginFullname) == nil {
+            UserDefaults.set(forKey: .loginFullname, value:"")
+        }
+        if UserDefaults.get(forKey: .loginPhoneEmail) == nil {
+            UserDefaults.set(forKey: .loginPhoneEmail, value:"")
+        }
+        if UserDefaults.get(forKey: .loginDueDate) == nil {
+            UserDefaults.set(forKey: .loginDueDate, value:"")
+        }
+        if UserDefaults.get(forKey: .loginUserId) == nil {
+            UserDefaults.set(forKey: .loginUserId, value:"")
+        }
+        
     }
+   
 
     @objc func handleAppleEvent(event: NSAppleEventDescriptor, replyEvent: NSAppleEventDescriptor) {
         guard let appleEventDescription = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject)) else {
@@ -158,5 +235,87 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         V2rayLaunch.Stop()
         // restore system proxy
         V2rayLaunch.setSystemProxy(mode: .restore)
+    }
+    func loginCheck(){
+
+        let token = UserDefaults.get(forKey: .loginToken)
+        let username =  UserDefaults.get(forKey: .loginFullname)
+        let email =  UserDefaults.get(forKey: .loginPhoneEmail)
+        
+        if(token=="" ){
+            //  not logged in
+            print("Is not  Logged in")
+            
+            //Hide the logout button
+            loginMenu.isHidden=false
+            logoutMenu.isHidden=true;
+            
+            //Hide the Account information
+            accountTitleMenuItem.isHidden = true
+            usernameMenuItem.isHidden = true
+            emailMenuItem.isHidden = true
+
+            logout()
+            //Disable Connect and Disconnect button
+            toggleRunningMenuItem.isHidden=true;
+            
+        }else{
+            // logged in
+             print("Is  Logged in")
+            //Hide the login button
+            logoutMenu.isEnabled=true;
+             loginMenu.isHidden=true
+            logoutMenu.isHidden=false;
+            
+            
+            //Show the Account information
+               usernameMenuItem.title =  username!
+               emailMenuItem.title =  email!
+               accountTitleMenuItem.isHidden = false
+               usernameMenuItem.isHidden = false
+               emailMenuItem.isHidden = false
+
+            //Enable Connect and Disconnect button
+            toggleRunningMenuItem.isHidden=false;
+            
+            
+        }
+    }
+    func updateServers(){
+        let defaults = UserDefaults.standard
+               let token = defaults.string(forKey: "token")
+               
+               if(token != "" ){
+                BASEAPI.getServers(token:token!)
+                }
+    }
+    
+    func logout(){
+            print("Logging out...")
+            BASEAPI.removeAllServers();
+            UserDefaults.set(forKey: .loginToken, value:"")
+            print("logged out");
+            NotificationCenter.default
+            .post(name: DISCONNECT_VPN, object: nil)
+            openLoginWindow();
+            
+        
+    }
+    
+    @IBAction func doLogout(_ sender: Any) {
+        UserDefaults.set(forKey: .loginToken, value:"")
+        loginCheck()
+    }
+    func openLoginWindow(){
+        if loginWinCtrl != nil {
+            loginWinCtrl.close()
+        }
+        let ctrl = LoginWindowController(windowNibName: "LoginWindowController")
+        loginWinCtrl = ctrl
+        LoginWindowController.instance=ctrl
+        
+        ctrl.showWindow(self)
+        NSApp.activate(ignoringOtherApps: true)
+        ctrl.window?.makeKeyAndOrderFront(self)
     }
 }

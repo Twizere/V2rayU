@@ -39,6 +39,8 @@ var qrcodeWindow = QrcodeWindowController()
 
 var toastWindowCtrl: ToastWindowController!
 
+var loginWinCtrl: LoginWindowController!
+
 func makeToast(message: String, displayDuration: Double? = 2) {
     if toastWindowCtrl != nil {
         toastWindowCtrl.close()
@@ -208,8 +210,8 @@ class MenuController: NSObject, NSMenuDelegate {
     }
 
     func setStatusOff() {
-        v2rayStatusItem.title = "v2ray-core: Off" + ("  (v" + appVersion + ")")
-        toggleV2rayItem.title = "Turn v2ray-core On"
+        v2rayStatusItem.title = "Agakoti VPN: Off" + ("  (v" + appVersion + ")")
+        toggleV2rayItem.title = "Turn Agakoti On"
 
         if let button = statusItem.button {
             button.image = NSImage(named: NSImage.Name("IconOff"))
@@ -220,8 +222,8 @@ class MenuController: NSObject, NSMenuDelegate {
     }
 
     func setStatusOn(runMode: RunMode) {
-        v2rayStatusItem.title = "v2ray-core: On" + ("  (v" + appVersion + ")")
-        toggleV2rayItem.title = "Turn v2ray-core Off"
+        v2rayStatusItem.title = "Agakoti VPN: On" + ("  (v" + appVersion + ")")
+        toggleV2rayItem.title = "Turn Agakoti VPN Off"
 
         var iconName = "IconOn"
 
@@ -612,4 +614,30 @@ class MenuController: NSObject, NSMenuDelegate {
     func noticeTip(title: String = "", subtitle: String = "", informativeText: String = "") {
         makeToast(message: title + (subtitle.count > 0 ? " - " + subtitle : "") + " : " + informativeText)
     }
+    
+    func openLoginWindow(){
+           if loginWinCtrl != nil {
+               loginWinCtrl.close()
+           }
+           let ctrl = LoginWindowController(windowNibName: "LoginWindowController")
+           loginWinCtrl = ctrl
+           LoginWindowController.instance=ctrl
+           
+           ctrl.showWindow(self)
+           NSApp.activate(ignoringOtherApps: true)
+           ctrl.window?.makeKeyAndOrderFront(self)
+       }
+    
+    @IBAction func loginWindow(_ sender: Any) {
+        openLoginWindow()
+    }
+    
+    @IBAction func openMyAccount(_ sender: Any) {
+    }
+    @IBAction func myUsername(_ sender: Any) {
+    }
+    @IBAction func myEmail(_ sender: Any) {
+    }
 }
+
+

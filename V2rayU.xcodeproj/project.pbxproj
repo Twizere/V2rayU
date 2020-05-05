@@ -40,7 +40,6 @@
 		66F07CF9236D79540088A4AE /* ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F07CF8236D79540088A4AE /* ping.swift */; };
 		66F302A522AAA1D400FCA4E2 /* V2rayUTool in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66F3029922AA9C0900FCA4E2 /* V2rayUTool */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		66F411B121CA49EE007AAC10 /* pac in Copy Files */ = {isa = PBXBuildFile; fileRef = 6683B1EA21C2AD1A004A1C5F /* pac */; };
-		66F411B221CA49F4007AAC10 /* v2ray-core in Copy Files */ = {isa = PBXBuildFile; fileRef = 667029CF21AFB5730079EF41 /* v2ray-core */; };
 		66F411B521CA8921007AAC10 /* cmd.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66F411B421CA8921007AAC10 /* cmd.sh */; };
 		66FEAD53217EE14C009DECF9 /* ConfigWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66FEAD4E217EE14C009DECF9 /* ConfigWindow.xib */; };
 		6D6DF2CF13D9FD3C7C6492A4 /* QrcodeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6DF12EA09D2D80788666D0 /* QrcodeWindow.swift */; };
@@ -59,6 +58,9 @@
 		6D6DFC1D9432F2A60D2156E2 /* PreferenceDns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6DFEB25B88118513B9F581 /* PreferenceDns.swift */; };
 		6D6DFEA4ED44E1BE02451B6D /* PreferenceAbout.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D6DF5D99F2FBB7B53564B3B /* PreferenceAbout.strings */; };
 		6D6DFFD18860EBE148F6DF1F /* PreferencePac.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D6DFE89E1A7BFE2AC1D8871 /* PreferencePac.strings */; };
+		F144E382245318C900327D25 /* LoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F144E380245318C800327D25 /* LoginWindowController.xib */; };
+		F144E383245318C900327D25 /* LoginWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E381245318C800327D25 /* LoginWindowController.swift */; };
+		F144E38924531A8000327D25 /* BASEAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E38824531A8000327D25 /* BASEAPI.swift */; };
 		F260898E336CFA5EAB07ADC9 /* Pods_V2rayU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A5CE4521706B5A009B08B2 /* Pods_V2rayU.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,7 +112,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				66F411B221CA49F4007AAC10 /* v2ray-core in Copy Files */,
 				66F411B121CA49EE007AAC10 /* pac in Copy Files */,
 			);
 			name = "Copy Files";
@@ -163,7 +164,6 @@
 		6662C20C240EA794000AF6CD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../zh-Hans.lproj/PreferenceDns.strings"; sourceTree = "<group>"; };
 		6662C20D240EA797000AF6CD /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "../zh-HK.lproj/PreferenceDns.strings"; sourceTree = "<group>"; };
 		667029C921AF8E7A0079EF41 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../../Downloads/Sparkle-1.21.0/Sparkle.framework"; sourceTree = "<group>"; };
-		667029CF21AFB5730079EF41 /* v2ray-core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "v2ray-core"; path = "Build/v2ray-core"; sourceTree = "<group>"; };
 		667029D221AFB86E0079EF41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/QrcodeWindow.xib; sourceTree = "<group>"; };
 		66784AFB2170486D00AD307F /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		66784AFF21704E1300AD307F /* V2rayCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V2rayCore.swift; sourceTree = "<group>"; };
@@ -219,6 +219,9 @@
 		6D6DFFB0110E2442FC8337A5 /* format.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = format.js; sourceTree = "<group>"; };
 		6D6DFFB29020127E034AD168 /* PreferenceGeneral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceGeneral.swift; sourceTree = "<group>"; };
 		8E15DFCD449143CCC309A1A0 /* Pods-V2rayU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2rayU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V2rayU/Pods-V2rayU.debug.xcconfig"; sourceTree = "<group>"; };
+		F144E380245318C800327D25 /* LoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginWindowController.xib; sourceTree = "<group>"; };
+		F144E381245318C800327D25 /* LoginWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWindowController.swift; sourceTree = "<group>"; };
+		F144E38824531A8000327D25 /* BASEAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BASEAPI.swift; path = API/BASEAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,7 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				6683B1EA21C2AD1A004A1C5F /* pac */,
-				667029CF21AFB5730079EF41 /* v2ray-core */,
 				66FEAD44217D75D7009DECF9 /* Build */,
 				664EB373216C9A5E00B6AE0D /* V2rayU */,
 				660C8CA02181CBAA00896361 /* V2rayUTests */,
@@ -329,6 +331,8 @@
 		664EB373216C9A5E00B6AE0D /* V2rayU */ = {
 			isa = PBXGroup;
 			children = (
+				F144E381245318C800327D25 /* LoginWindowController.swift */,
+				F144E380245318C800327D25 /* LoginWindowController.xib */,
 				66F07CF8236D79540088A4AE /* ping.swift */,
 				66F411B421CA8921007AAC10 /* cmd.sh */,
 				6608D9B82182BBAC00A0E0DD /* v2ray */,
@@ -355,6 +359,7 @@
 				66193A7A23EC5EFA00289B6A /* Shortcut.h */,
 				66193A7B23EC5F1400289B6A /* Shortcut.m */,
 				6618373D23EB03EC000F7410 /* V2rayU-Bridging-header.h */,
+				F144E38824531A8000327D25 /* BASEAPI.swift */,
 			);
 			path = V2rayU;
 			sourceTree = "<group>";
@@ -595,6 +600,7 @@
 				6D6DFC1618D163A9DFE3B628 /* PreferenceGeneral.strings in Resources */,
 				6D6DFFD18860EBE148F6DF1F /* PreferencePac.strings in Resources */,
 				66193A8923EE46BC00289B6A /* PreferenceRouting.xib in Resources */,
+				F144E382245318C900327D25 /* LoginWindowController.xib in Resources */,
 				6D6DF51271B1AF55EACC79F2 /* PreferenceSubscribe.strings in Resources */,
 				6D6DF426E93AA9929183CE26 /* appdmg.json in Resources */,
 			);
@@ -675,6 +681,8 @@
 				6608D9DC2182C6D200A0E0DD /* v2rayInbound.swift in Sources */,
 				6608D9DE2182C92D00A0E0DD /* v2rayOutbound.swift in Sources */,
 				6618372923E9BF1A000F7410 /* ToastWindow.swift in Sources */,
+				F144E38924531A8000327D25 /* BASEAPI.swift in Sources */,
+				F144E383245318C900327D25 /* LoginWindowController.swift in Sources */,
 				66193A7C23EC5F1500289B6A /* Shortcut.m in Sources */,
 				6608D9DA2182C69D00A0E0DD /* v2rayStruct.swift in Sources */,
 				66F07CF9236D79540088A4AE /* ping.swift in Sources */,
