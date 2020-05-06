@@ -51,9 +51,9 @@ func makeToast(message: String, displayDuration: Double? = 2) {
     toastWindowCtrl.fadeInHud(displayDuration)
 }
 
-func ToggleRunning(_ toast: Bool = true) {
+func ToggleRunning(_ toast: Bool = true, _ force_off: Bool = false) {
     // turn off
-    if UserDefaults.getBool(forKey: .v2rayTurnOn) {
+    if force_off || UserDefaults.getBool(forKey: .v2rayTurnOn) {
         menuController.stopV2rayCore()
         if toast {
             makeToast(message: "Agakoti VPN: Off")
@@ -74,15 +74,15 @@ func SwitchProxyMode() {
     switch runMode {
     case .pac:
         menuController.switchRunMode(runMode: .global)
-        makeToast(message: "V2rayU: global Mode")
+        makeToast(message: "Agakoti: global Mode")
         break
     case .global:
         menuController.switchRunMode(runMode: .manual)
-        makeToast(message: "V2rayU: manual Mode")
+        makeToast(message: "Agakoti: manual Mode")
         break
     case .manual:
         menuController.switchRunMode(runMode: .pac)
-        makeToast(message: "V2rayU: pac Mode")
+        makeToast(message: "Agakoti: pac Mode")
         break
 
     default: break
@@ -622,7 +622,7 @@ class MenuController: NSObject, NSMenuDelegate {
            let ctrl = LoginWindowController(windowNibName: "LoginWindowController")
            loginWinCtrl = ctrl
            LoginWindowController.instance=ctrl
-           ToggleRunning(false)
+           ToggleRunning(false,true)
            ctrl.showWindow(self)
            NSApp.activate(ignoringOtherApps: true)
            ctrl.window?.makeKeyAndOrderFront(self)
