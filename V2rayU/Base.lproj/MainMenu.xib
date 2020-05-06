@@ -64,7 +64,7 @@
                         <action selector="switchGlobalMode:" target="hcZ-V7-Dui" id="PFj-0a-XpI"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Manual Mode" id="hTu-27-5OL">
+                <menuItem title="Manual Mode" hidden="YES" id="hTu-27-5OL">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="switchManualMode:" target="hcZ-V7-Dui" id="xZS-LX-cKQ"/>
