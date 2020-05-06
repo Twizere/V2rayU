@@ -135,7 +135,7 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" hidden="YES" id="4r0-fk-xMy"/>
-                <menuItem title="Import Server From Pasteboard" keyEquivalent="p" toolTip="ss:// or vmess://" id="Kct-KD-qPN">
+                <menuItem title="Import Server From Pasteboard" hidden="YES" keyEquivalent="p" toolTip="ss:// or vmess://" id="Kct-KD-qPN">
                     <connections>
                         <action selector="ImportFromPasteboard:" target="hcZ-V7-Dui" id="aP0-Ao-OTD"/>
                     </connections>
