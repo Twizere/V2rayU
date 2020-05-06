@@ -61,6 +61,7 @@
 		F144E382245318C900327D25 /* LoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F144E380245318C800327D25 /* LoginWindowController.xib */; };
 		F144E383245318C900327D25 /* LoginWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E381245318C800327D25 /* LoginWindowController.swift */; };
 		F144E38924531A8000327D25 /* BASEAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E38824531A8000327D25 /* BASEAPI.swift */; };
+		F16F661F2462CF9600CE2A7A /* v2ray-core in Resources */ = {isa = PBXBuildFile; fileRef = F16F661E2462CF9600CE2A7A /* v2ray-core */; };
 		F260898E336CFA5EAB07ADC9 /* Pods_V2rayU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A5CE4521706B5A009B08B2 /* Pods_V2rayU.framework */; };
 /* End PBXBuildFile section */
 
@@ -222,6 +223,7 @@
 		F144E380245318C800327D25 /* LoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginWindowController.xib; sourceTree = "<group>"; };
 		F144E381245318C800327D25 /* LoginWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWindowController.swift; sourceTree = "<group>"; };
 		F144E38824531A8000327D25 /* BASEAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BASEAPI.swift; path = API/BASEAPI.swift; sourceTree = "<group>"; };
+		F16F661E2462CF9600CE2A7A /* v2ray-core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "v2ray-core"; path = "Build/v2ray-core"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +306,7 @@
 		664EB368216C9A5E00B6AE0D = {
 			isa = PBXGroup;
 			children = (
+				F16F661E2462CF9600CE2A7A /* v2ray-core */,
 				6683B1EA21C2AD1A004A1C5F /* pac */,
 				66FEAD44217D75D7009DECF9 /* Build */,
 				664EB373216C9A5E00B6AE0D /* V2rayU */,
@@ -597,6 +600,7 @@
 				6D6DF5F67A917F78FF652D45 /* .gitignore in Resources */,
 				6D6DFEA4ED44E1BE02451B6D /* PreferenceAbout.strings in Resources */,
 				6D6DF95B4749491F1D600B05 /* PreferenceAdvance.strings in Resources */,
+				F16F661F2462CF9600CE2A7A /* v2ray-core in Resources */,
 				6D6DFC1618D163A9DFE3B628 /* PreferenceGeneral.strings in Resources */,
 				6D6DFFD18860EBE148F6DF1F /* PreferencePac.strings in Resources */,
 				66193A8923EE46BC00289B6A /* PreferenceRouting.xib in Resources */,
