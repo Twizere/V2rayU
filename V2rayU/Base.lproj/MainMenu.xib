@@ -94,7 +94,7 @@
                 <menuItem title="Login" id="9Cc-Ua-nP3">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="loginWindow:" target="hcZ-V7-Dui" id="HRz-rG-G4k"/>
+                        <action selector="loginWindow:" target="Voe-Tx-rLC" id="v8k-zU-3X6"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Logout" id="VbE-ab-BPS">

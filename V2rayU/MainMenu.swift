@@ -614,23 +614,8 @@ class MenuController: NSObject, NSMenuDelegate {
     func noticeTip(title: String = "", subtitle: String = "", informativeText: String = "") {
         makeToast(message: title + (subtitle.count > 0 ? " - " + subtitle : "") + " : " + informativeText)
     }
-    
-    func openLoginWindow(){
-           if loginWinCtrl != nil {
-               loginWinCtrl.close()
-           }
-           let ctrl = LoginWindowController(windowNibName: "LoginWindowController")
-           loginWinCtrl = ctrl
-           LoginWindowController.instance=ctrl
-           ToggleRunning(false,true)
-           ctrl.showWindow(self)
-           NSApp.activate(ignoringOtherApps: true)
-           ctrl.window?.makeKeyAndOrderFront(self)
-       }
-    
-    @IBAction func loginWindow(_ sender: Any) {
-        openLoginWindow()
-    }
+
+   
     
     @IBAction func openMyAccount(_ sender: Any) {
     }

@@ -134,7 +134,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
        notifyCenter.addObserver(forName: DISCONNECT_VPN, object: nil, queue: nil, using: {
                    notice in
-                    ToggleRunning(false)
+                    ToggleRunning(false,true)
                })
         
         // Register global hotkey
@@ -313,9 +313,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let ctrl = LoginWindowController(windowNibName: "LoginWindowController")
         loginWinCtrl = ctrl
         LoginWindowController.instance=ctrl
-        
+
         ctrl.showWindow(self)
         NSApp.activate(ignoringOtherApps: true)
         ctrl.window?.makeKeyAndOrderFront(self)
+        ctrl.window?.center()
     }
+    @IBAction func loginWindow(_ sender: Any) {
+           openLoginWindow()
+       }
 }
