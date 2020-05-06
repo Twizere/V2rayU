@@ -85,7 +85,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // working dir must be: /Applications/V2rayU.app
         NSLog(String.init(format: "working dir:%@", path))
 
-        if !(path.contains("Developer/Xcode") || path.contains("/Applications/V2rayU.app")) {
+        if !(path.contains("Developer/Xcode") || path.contains("/Applications/V2rayU.app") || path.contains("/Applications/Agakoti.app")) {
             makeToast(message: "Please drag 'Agakoti' to '/Applications' directory", displayDuration: 5.0)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
                 NSApplication.shared.terminate(self)
@@ -110,12 +110,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // Showing the Notification
             let username = UserDefaults.get(forKey: .loginFullname);
             
-            let noty = NSUserNotification()
-            
-            noty.title = "Hi " + username!
-            noty.subtitle = "Welcome back to AGAKOTI VPN"
-            noty.deliveryDate = Date().addingTimeInterval(1)
-            NSUserNotificationCenter.default.scheduleNotification(noty)
+//            let noty = NSUserNotification()
+//
+//            noty.title = "Hi " + username!
+//            noty.subtitle = "Welcome back to AGAKOTI VPN"
+//            noty.hasActionButton = true
+//            noty.soundName="NSUserNotificationDefaultSoundName"
+//            NSUserNotificationCenter.default.deliver(noty)
+//
+            let alert = NSAlert()
+            alert.messageText = "Hi " + username!
+            alert.informativeText = "Welcome back to AGAKOTI VPN"
+            alert.alertStyle = .informational
+            //alert.addButton(withTitle: "OK")
+            alert.runModal()
+
             
             //Hide Login Controls
             self.loginCheck();

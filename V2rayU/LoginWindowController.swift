@@ -67,14 +67,12 @@ class LoginWindowController: NSWindowController {
             }else{
                 
             greenMsgView.stringValue = msg;
-            
-                
-            sleep(1)
                 loginButton.title = "Login"
-                NotificationCenter.default
-                 .post(name:LOGGED_IN_SUCCESSFULY, object: nil)
-
+               
             window?.performClose(self)
+            NotificationCenter.default
+                            .post(name:LOGGED_IN_SUCCESSFULY, object: nil)
+
             }
            
         }
