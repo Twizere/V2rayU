@@ -26,7 +26,7 @@ class V2rayULauncherApplication: NSApplication {
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     public func applicationDidFinishLaunching(_ notification: Notification) {
-        let mainAppIdentifier = "net.yanue.V2rayU"
+        let mainAppIdentifier = "nezalab.agakoti.mac"
         let running = NSWorkspace.shared.runningApplications
         var alreadyRunning = false
         
@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             components.removeLast()
             components.removeLast()
             components.append("MacOS")
-            components.append("V2rayU")
+            components.append("Agakoti")
             
             let newPath = NSString.path(withComponents: components)
             NSWorkspace.shared.launchApplication(newPath)
