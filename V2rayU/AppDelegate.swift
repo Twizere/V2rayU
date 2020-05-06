@@ -42,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // default settings
         self.checkDefault()
         loginCheck();
-
+        ToggleRunning(false)
         // auto Clear Logs
         if UserDefaults.getBool(forKey: .autoClearLog) {
             print("ClearLogs")
