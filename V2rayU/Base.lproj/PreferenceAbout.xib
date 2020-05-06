@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferenceAboutViewController" customModule="V2rayU" customModuleProvider="target">
             <connections>
+                <outlet property="V2rayCoreVersion" destination="gws-ge-QLa" id="0Gu-lx-VkO"/>
                 <outlet property="VersionLabel" destination="GfP-Xl-Rdf" id="tPf-dh-zDO"/>
                 <outlet property="view" destination="bXz-rK-jao" id="xYY-dt-fo2"/>
             </connections>
@@ -18,10 +19,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huF-fy-g3j">
-                    <rect key="frame" x="112" y="92" width="217" height="14"/>
+                    <rect key="frame" x="111" y="92" width="219" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Copyright © 2020 Neza Lab technology" id="bCA-au-e3o">
-                        <font key="font" metaFont="controlContent" size="11"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Copyright © 2020 Neza Lab Technology" id="bCA-au-e3o">
+                        <font key="font" metaFont="label" size="11"/>
+                        <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" alphaValue="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="gws-ge-QLa">
+                    <rect key="frame" x="144" y="69" width="156" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="mini" lineBreakMode="charWrapping" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="based on v2ray-core v4.18.0" usesSingleLineMode="YES" bezelStyle="round" id="8bU-0Q-dTD">
+                        <font key="font" metaFont="menu" size="9"/>
                         <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -36,7 +46,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GfP-Xl-Rdf">
-                    <rect key="frame" x="186" y="209" width="73" height="13"/>
+                    <rect key="frame" x="187" y="209" width="73" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Version 1.1" id="gsf-1V-bbM">
                         <font key="font" metaFont="system" size="10"/>
