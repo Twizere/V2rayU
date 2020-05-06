@@ -622,7 +622,7 @@ class MenuController: NSObject, NSMenuDelegate {
            let ctrl = LoginWindowController(windowNibName: "LoginWindowController")
            loginWinCtrl = ctrl
            LoginWindowController.instance=ctrl
-           
+           ToggleRunning(false)
            ctrl.showWindow(self)
            NSApp.activate(ignoringOtherApps: true)
            ctrl.window?.makeKeyAndOrderFront(self)
