@@ -23,7 +23,7 @@ class LoginWindowController: NSWindowController {
         super.windowDidLoad()
         redMsgView.stringValue = ""
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-        
+        BASEAPI.getPanelUrl()
     }
    override func keyUp(with event: NSEvent)
 
@@ -54,29 +54,36 @@ class LoginWindowController: NSWindowController {
        //Cleaning the message
         redMsgView.stringValue = ""
         //greenMsgView.stringValue = msg;
-        
-        print(msg);
+        BASEAPI.doLog(text:"Debug-4");
+        BASEAPI.doLog(text:msg);
         if(!isLogin){
           shakeWindows()
             redMsgView.stringValue = msg
             loginButton.title = "Login"
         }else{
+            BASEAPI.doLog(text:"Debug-3");
             if(!serversLoaded){
+                BASEAPI.doLog(text:"Debug-2");
                 loginButton.title = "Loading locations ..."
-                BASEAPI.getServers(token: UserDefaults.standard.string(forKey: "token")!)
+                 BASEAPI.doLog(text:loginButton.title);
+                BASEAPI.doLog(text:"Debug-1");
+                 let accessToken = UserDefaults.get(forKey: .loginToken)
+                BASEAPI.getServers(token: accessToken!);
+                BASEAPI.doLog(text:"Debug0");
             }else{
-                
+            BASEAPI.doLog(text:"Debug1");
             greenMsgView.stringValue = msg;
                 loginButton.title = "Login"
-               
+            BASEAPI.doLog(text:"Debug1");
             window?.performClose(self)
             NotificationCenter.default
                             .post(name:LOGGED_IN_SUCCESSFULY, object: nil)
-
+            BASEAPI.doLog(text:"Debug2");
             }
            
         }
          loginButton.isEnabled = true;
+        BASEAPI.doLog(text:"Debug3");
     }
     
     

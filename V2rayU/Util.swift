@@ -80,6 +80,7 @@ extension UserDefaults {
         case loginFullname
         case loginPhoneEmail
         case loginDueDate
+        case panelUrl
     }
 
     static func setBool(forKey key: KEY, value: Bool) {

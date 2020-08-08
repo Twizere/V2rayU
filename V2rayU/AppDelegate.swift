@@ -19,7 +19,7 @@ let SERVERS_UPDATED = Notification.Name(rawValue: "SERVERS_UPDATED")
 let LOGOUT_NEEDED = Notification.Name(rawValue:"LOGOUT_NEEDED")
 let DISCONNECT_VPN = Notification.Name(rawValue:"DISCONNECT_VPN")
 let LOGGED_IN_SUCCESSFULY = Notification.Name(rawValue:"LOGGED_IN_SUCCESSFULY")
-
+let mainLogFilePath = NSHomeDirectory() + "/Library/Logs/agakoti.log"
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -41,6 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // default settings
         self.checkDefault()
+        //BASEAPI.doLog(text:"Agakoti is starting Up!!");
         loginCheck();
         ToggleRunning(false,true)
         // auto Clear Logs
@@ -106,10 +107,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         notifyCenter.addObserver(forName: LOGGED_IN_SUCCESSFULY, object: nil, queue: nil, using: {
             notice in
-            
+            BASEAPI.doLog(text:"Debug4");
             // Showing the Notification
             let username = UserDefaults.get(forKey: .loginFullname);
-            
+            BASEAPI.doLog(text:"Debug5");
 //            let noty = NSUserNotification()
 //
 //            noty.title = "Hi " + username!
@@ -118,16 +119,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            noty.soundName="NSUserNotificationDefaultSoundName"
 //            NSUserNotificationCenter.default.deliver(noty)
 //
+            BASEAPI.doLog(text:"Debug6");
             let alert = NSAlert()
+            BASEAPI.doLog(text:"Debug7");
             alert.messageText = "Hi " + username!
             alert.informativeText = "Welcome back to AGAKOTI VPN"
             alert.alertStyle = .informational
             //alert.addButton(withTitle: "OK")
+            BASEAPI.doLog(text:"Debug8");
             alert.runModal()
-
+            BASEAPI.doLog(text:"Debug9");
             
             //Hide Login Controls
             self.loginCheck();
+            BASEAPI.doLog(text:"Debug10");
         })
         notifyCenter.addObserver(forName: LOGOUT_NEEDED, object: nil, queue: nil, using: {
             notice in
@@ -253,7 +258,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if(token=="" ){
             //  not logged in
-            print("Is not  Logged in")
+            BASEAPI.doLog(text:"Is not  Logged in")
             
             //Hide the logout button
             loginMenu.isHidden=false
@@ -270,7 +275,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
         }else{
             // logged in
-             print("Is  Logged in")
+            BASEAPI.doLog(text:"Is  Logged in")
             //Hide the login button
             logoutMenu.isEnabled=true;
              loginMenu.isHidden=true
@@ -331,4 +336,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func loginWindow(_ sender: Any) {
            openLoginWindow()
        }
+    
+    
 }

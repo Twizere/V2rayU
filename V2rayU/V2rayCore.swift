@@ -32,6 +32,8 @@ class V2rayCore {
     }
 
     func check() {
+        //disabling checking the new core
+        return
         // 当前版本检测
         let oldVersion = UserDefaults.get(forKey: .v2rayCoreVersion) ?? V2rayCore.version
 

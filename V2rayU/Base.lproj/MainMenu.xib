@@ -12,7 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="V2rayU" customModuleProvider="target">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Agakoti" customModuleProvider="target">
             <connections>
                 <outlet property="accountTitleMenuItem" destination="K4b-9U-T3e" id="BIr-5N-uA1"/>
                 <outlet property="emailMenuItem" destination="32g-EA-BKv" id="BbU-i6-wkV"/>
@@ -24,7 +24,7 @@
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-        <customObject id="hcZ-V7-Dui" userLabel="MenuController" customClass="MenuController" customModule="V2rayU" customModuleProvider="target">
+        <customObject id="hcZ-V7-Dui" userLabel="MenuController" customClass="MenuController" customModule="Agakoti" customModuleProvider="target">
             <connections>
                 <outlet property="globalMode" destination="sZL-Iu-xAt" id="Iz8-oL-8dU"/>
                 <outlet property="manualMode" destination="hTu-27-5OL" id="lHt-aQ-ZNU"/>
@@ -111,7 +111,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Servers" id="NCx-DY-Hm4"/>
                 </menuItem>
-                <menuItem title="Configure..." hidden="YES" keyEquivalent="c" id="YoX-II-o27" userLabel="Configure">
+                <menuItem title="Configure..." keyEquivalent="c" id="YoX-II-o27" userLabel="Configure">
                     <connections>
                         <action selector="openConfig:" target="hcZ-V7-Dui" id="cu6-mU-Y02"/>
                     </connections>
